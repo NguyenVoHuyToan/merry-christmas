@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>Merry Christmas</title>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1e3a5f;
+      height: 100vh;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-align: center;
+      z-index: 10;
+      font-family: Arial, sans-serif;
+    }
+
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      color: #fff;
+      font-size: 24px;
+      user-select: none;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+
+    
+    .snowflake.small {
+        animation-duration: 8s;
+    }
+
+    .snowflake.medium {
+        animation-duration: 10s;
+    }
+    
+    .snowflake.large {
+        animation-duration: 12s;
+    }
+
+    button{
+        width: 120px;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: green;
+        color: #fff;
+        cursor: pointer;
+
+        margin-top: 20px;
+        transition: calc(0.5s);
+    }
+
+    button:hover{
+        background-color: #ffff00;
+        color: #000;
+        transition: calc(0.5s);
+    }
+    
+  </style>
+  <body>
+    <h1>Merry Chistmas and Happy New Year </h1>
+    <img src="https://giaoxutanviet.com/wp-content/uploads/strikingr/images/75721_1-628x353.jpg" width="500"  />
+    <button onclick="alert('Best Wish For You')" type="button">Click here</button>
+    <script>
+        function createSnowFlake() {
+          const snowflakeCount = 100;
+          for (let i = 0; i < snowflakeCount; i++) {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add('snowflake');
+            const sizeClass =
+              Math.random() < 0.33
+                ? "small"
+                : Math.random() < 0.66
+                ? "medium"
+                : "large";
+            snowflake.classList.add(sizeClass);
+    
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+    
+            snowflake.style.animationDelay = `${Math.random() * 5}s`;
+            snowflake.textContent = "*";
+    
+            document.body.appendChild(snowflake);
+          }
+        }
+        createSnowFlake()
+      </script>
+  </body>
+</html>
